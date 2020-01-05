@@ -1,11 +1,8 @@
 package com.thoughtworks.jpabatch.rest;
 
-import org.springframework.stereotype.Service;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Version;
 import java.io.Serializable;
 
 @Entity
@@ -17,6 +14,9 @@ public class Employee implements Serializable {
     private String firstName;
 
     private String lastName;
+
+    @Version
+    private Short version;
 
     public Employee() {}
 
@@ -48,5 +48,9 @@ public class Employee implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Short getVersion() {
+        return version;
     }
 }

@@ -18,10 +18,11 @@ public class EmployeeService {
     }
 
     public void createEmployees() {
-        this.employeeRepository.saveAll(getEmployees());
+        List<Employee> employees = getEmployees();
+        this.employeeRepository.saveAll(employees);
     }
 
-    private Iterable<Employee> getEmployees() {
+    private List<Employee> getEmployees() {
         List<Employee> employees = new ArrayList<>();
         for (int count = 0; count < 10; count++) {
             employees.add(new Employee(UUID.randomUUID().toString(), format("first-name-%d", count + 1), format("last-name-%d", count + 1)));
